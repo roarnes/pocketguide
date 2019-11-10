@@ -1,0 +1,67 @@
+<nav>
+    <a href="/home/">Home</a>
+</nav>
+
+<!-- ACCOMMODATION -->
+{% if accommodation_detail %}
+    {% for accommodation in accommodation_detail %}
+        <h3>{{ accommodation.hotel_name }}</h3>
+
+        <img src="{{accommodation.image}}" alt="{{accommodation.hotel_name}}" height="200" width="300">
+
+        <h4>Rp {{ accommodation.price }}</h4>
+
+        <h4>Address</h4>
+        <p>{{ accommodation.address }}</p>
+
+        <h4>Details</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, quam vitae venenatis convallis, mi lectus varius tellus, eget rhoncus felis orci quis tellus. Curabitur non massa malesuada, maximus ante vel, fermentum quam. Phasellus molestie auctor dapibus. Vestibulum et est ultricies, lobortis risus et, lobortis nibh.</p>
+
+        <h4>Nearby</h4>
+        <ul>
+            <li>Lorem</li>
+            <li>Lorem</li>
+            <li>Lorem</li>
+            <li>Lorem</li>
+        </ul>
+
+        <h4>Highlights</h4>
+        <p>Lorem ipsum</p>
+
+        <button>BOOK</button>
+
+
+    {% endfor %}
+{% endif %}
+
+<!-- ATTRACTION -->
+{% if attraction_detail %}
+    {% for attraction in attraction_detail %}
+        <h3>{{ attraction.attraction_name }}</h3>
+
+        <img src="{{attraction.image}}" alt="{{attraction.attraction_name}}" height="200" width="300">
+
+        <h4>Rp {{ attraction.price }}</h4>
+
+        <h4>Address</h4>
+        <p>{{ attraction.address }}</p>
+
+        <h4>Details</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus, quam vitae venenatis convallis, mi lectus varius tellus, eget rhoncus felis orci quis tellus. Curabitur non massa malesuada, maximus ante vel, fermentum quam. Phasellus molestie auctor dapibus. Vestibulum et est ultricies, lobortis risus et, lobortis nibh.</p>
+
+        <h4>Nearby</h4>
+        <ul>
+            <li>Lorem</li>
+            <li>Lorem</li>
+            <li>Lorem</li>
+            <li>Lorem</li>
+        </ul>
+
+        <h4>Highlights</h4>
+        <p>Lorem ipsum</p>
+
+        <button>ORDER RIDE</button>
+
+    {% endfor %}
+{% endif %}
+

@@ -1,0 +1,22 @@
+<nav>
+    <a href="/home/">Home</a>
+</nav>
+
+<h3>Search Result</h3>
+
+{% if returned_flight_list %}
+    <ul>
+    {% for flight in returned_flight_list %}
+        <li><a href="">{{ flight.airline_name }}</a></li>
+        <ul>
+        	<li>Departing City: {{ flight.from_city }}</li>
+        	<li>Date: {{ flight.date }}</li>
+        	<li>Time: {{ flight.time }}</li>
+        	<li>Price: {{ flight.price }}</li>
+        </ul>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No flight is available.</p>
+{% endif %}
+

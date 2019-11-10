@@ -1,0 +1,46 @@
+<nav>
+    <a href="/home/">Home</a>
+</nav>
+
+<!-- FLIGHT -->
+
+<h3>Flights</h3>
+
+<form   method="GET" role="form" action="{% url 'searchFlight' %}">
+	<input type="text"  name="search_flight_by_city" placeholder="Enter destination city">
+	<button type="Submit" value="Submit" name="Submit">Search</button>
+</form>
+
+<!-- ACCOMMODATION -->
+
+{% if latest_accommodation_list %}
+	<h3>Accommodations</h3>
+    <ul>
+    {% for accommodation in latest_accommodation_list %}
+        <li><a href="/home/{{ accommodation.id }}/accommodation">{{ accommodation.hotel_name }}</a></li>
+        <ul>
+        	<li>Price: {{ accommodation.price }}</li>
+        	<li>Address: {{ accommodation.address }}</li>
+        </ul>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No accommodation is available.</p>
+{% endif %}
+
+<!-- ATTRACTION -->
+
+{% if latest_attraction_list %}
+	<h3>Attractions</h3>
+	<ul>
+    {% for attraction in latest_attraction_list %}
+        <li><a href="/home/{{ attraction.id }}/attraction">{{ attraction.attraction_name }}</a></li>
+        <ul>
+        	<li>Address: {{ attraction.address }}</li>
+        </ul>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No attraction is available.</p>
+{% endif %}
+
