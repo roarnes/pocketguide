@@ -1,0 +1,30 @@
+<h2>User : {{user.first_name}} {{user.surename}}, UID : {{user.id}}</h2>
+<h2>Ptg Ride</h2>
+<h3>Your PtgRide Bookings</h3>
+
+{% if booking_list %}
+    <ul>
+    {% for booking in booking_list %}
+        <li> Booking ID : {{booking.id}} | From {{booking.pickup_location.name}} to {{booking.dropoff_location.name}} | Booking type : {{booking.type}} | Cost : IDR {{booking.cost}},-</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No bookings are available</p>
+{% endif %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'ptgride:book' user.id %}" method="post">
+    {% csrf_token %}
+    <label for="pickup">Pick-up Location</label><br>
+    <input type="text" name="pickup" id="pickup"><br>
+    <label for="pickup">Drop-off Location</label><br>
+    <input type="text" name="dropoff" id="dropoff"><br>
+
+    <select name="choice">
+        <option>Ride</option>
+        <option>Car</option>
+    </select><br>
+
+    <input type="submit" value="Book">
+</form>

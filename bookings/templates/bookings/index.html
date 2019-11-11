@@ -1,0 +1,11 @@
+<h2>User : {{user.first_name}} {{user.surename}}, UID : {{user.id}}</h2>
+<h2>Bookings</h2>
+{% if booking_list %}
+    <ul>
+    {% for booking in booking_list %}
+        <li>{{ booking.name }}, {{booking.time_begin}} - {{booking.time_end}}, {{booking.location}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No bookings are available.</p>
+{% endif %}
